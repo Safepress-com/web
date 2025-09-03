@@ -51,7 +51,7 @@ export class ApiError extends Error {
 
 export async function submitContactForm(formData: ContactFormData): Promise<ContactSubmissionResponse> {
   try {
-    const response = await fetch(`${API_BASE_URL}/contact`, {
+    const response = await fetch(`${API_BASE_URL}/api/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
