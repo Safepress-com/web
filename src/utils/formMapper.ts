@@ -31,14 +31,20 @@ export function mapFormDataToApi(localData: LocalFormData): ContactFormData {
     howCanWeHelp = helpTypeMap[localData.helpType] || localData.helpType;
   }
 
-  return {
+  const apiData: ContactFormData = {
     fullName: localData.name.trim(),
     company: localData.company.trim(),
     email: localData.email.trim(),
     telegram: localData.telegram.trim() || '', // Make sure telegram is always a string
     howCanWeHelp,
-    message: localData.message.trim(),
   };
+
+  // Only include message if it's not empty
+  if (localData.message.trim()) {
+    apiData.message = localData.message.trim();
+  }
+
+  return apiData;
 }
 
 export function validateFieldLengths(data: ContactFormData): string[] {
@@ -60,7 +66,7 @@ export function validateFieldLengths(data: ContactFormData): string[] {
     errors.push('Service description must be 200 characters or less');
   }
 
-  if (data.message.length > 1000) {
+  if (data.message && data.message.length > 1000) {
     errors.push('Message must be 1000 characters or less');
   }
 

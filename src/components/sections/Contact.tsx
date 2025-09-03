@@ -99,10 +99,8 @@ export function Contact({ variant = 'white' }: ContactProps) {
       newErrors.helpType = 'Please select how we can help you';
     }
 
-    // Message validation
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
+    // Message validation (optional, but if provided must be at least 10 characters)
+    if (formData.message.trim() && formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters';
     }
 
@@ -368,7 +366,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
-                  Project Details *
+                  Project Details
                 </label>
                 <textarea
                   id="message"
@@ -379,7 +377,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
                   className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none bg-white text-slate-900 placeholder-slate-500 ${
                     errors.message ? 'border-red-500 bg-red-50' : 'border-slate-300'
                   }`}
-                  placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
+                  placeholder="Tell us about your project, timeline, budget, and any specific requirements (optional)..."
                   maxLength={1000}
                 />
                 {errors.message && (

@@ -6,7 +6,7 @@ export interface ContactFormData {
   email: string;
   telegram: string;
   howCanWeHelp: string;
-  message: string;
+  message?: string;
 }
 
 export interface ApiResponse<T = any> {
@@ -26,7 +26,7 @@ export interface ContactSubmissionResponse {
   email: string;
   telegram: string;
   howCanWeHelp: string;
-  message: string;
+  message?: string;
   createdAt: string;
 }
 

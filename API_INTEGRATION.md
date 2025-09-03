@@ -56,7 +56,7 @@ The forms now map to the API as follows:
 | email | email | string | ✅ | - |
 | telegram | telegram | string | ⭕ | 50 |
 | helpType + otherHelp | howCanWeHelp | string | ✅ | 200 |
-| message | message | string | ✅ | 1000 |
+| message | message | string | ⭕ | 1000 |
 
 ## Testing
 

@@ -109,10 +109,8 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
       newErrors.helpType = 'Please select how we can help you';
     }
 
-    // Message validation
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
+    // Message validation (optional, but if provided must be at least 10 characters)
+    if (formData.message.trim() && formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters';
     }
 
@@ -406,7 +404,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   className={`w-full px-4 py-4 border rounded-xl focus:ring-2 focus:ring-safepress-primary focus:border-transparent transition-all resize-none shadow-sm hover:shadow-md ${
                     errors.message ? 'border-red-500 bg-red-50' : 'border-slate-200 bg-slate-50/50'
                   }`}
-                  placeholder="Tell us about your project, timeline, and any specific requirements..."
+                  placeholder="Tell us about your project, timeline, and any specific requirements (optional)..."
                   maxLength={1000}
                 />
                 {errors.message && (
