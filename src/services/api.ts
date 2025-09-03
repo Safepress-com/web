@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.safepress.com';
+const API_BASE_URL = 'https://api.safepress.com';
 
 export interface ContactFormData {
   fullName: string;
@@ -31,14 +31,21 @@ export interface ContactSubmissionResponse {
 }
 
 export class ApiError extends Error {
+  public status?: number;
+  public details?: string[];
+  public retryAfter?: number;
+
   constructor(
     message: string,
-    public status?: number,
-    public details?: string[],
-    public retryAfter?: number
+    status?: number,
+    details?: string[],
+    retryAfter?: number
   ) {
     super(message);
     this.name = 'ApiError';
+    this.status = status;
+    this.details = details;
+    this.retryAfter = retryAfter;
   }
 }
 
