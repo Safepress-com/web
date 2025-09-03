@@ -1,6 +1,4 @@
-- name: Install dependencies
-      run: |name: Deploy React App to GitHub Pages
-
+name: Deploy React App to GitHub Pages
 on:
   push:
     branches: [ master ]
