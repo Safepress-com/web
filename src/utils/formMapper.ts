@@ -1,4 +1,4 @@
-import { ContactFormData } from '../services/api';
+import type { ContactFormData } from '../services/api';
 
 export interface LocalFormData {
   name: string;
