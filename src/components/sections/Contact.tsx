@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import { CustomSelect } from '../ui/CustomSelect';
+import { submitContactForm, ApiError } from '../../services/api';
+import { mapFormDataToApi, validateFieldLengths } from '../../utils/formMapper';
+import type { LocalFormData } from '../../utils/formMapper';
 
-interface FormData {
-  name: string;
-  company: string;
-  email: string;
-  telegram: string;
-  helpType: string;
-  otherHelp: string;
-  message: string;
-}
+// Using LocalFormData from utils/formMapper
 
 interface FormStatus {
   type: 'idle' | 'loading' | 'success' | 'error';
@@ -20,6 +15,7 @@ interface FormErrors {
   name?: string;
   company?: string;
   email?: string;
+  telegram?: string;
   helpType?: string;
   message?: string;
 }
@@ -29,7 +25,7 @@ interface ContactProps {
 }
 
 export function Contact({ variant = 'white' }: ContactProps) {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<LocalFormData>({
     name: '',
     company: '',
     email: '',
@@ -110,6 +106,20 @@ export function Contact({ variant = 'white' }: ContactProps) {
       newErrors.message = 'Message must be at least 10 characters';
     }
 
+    // Additional API length validations
+    const apiData = mapFormDataToApi(formData);
+    const lengthErrors = validateFieldLengths(apiData);
+    if (lengthErrors.length > 0) {
+      // Map length errors back to form fields
+      lengthErrors.forEach(error => {
+        if (error.includes('Full name')) newErrors.name = error;
+        else if (error.includes('Company')) newErrors.company = error;
+        else if (error.includes('Telegram')) newErrors.telegram = error;
+        else if (error.includes('Service description')) newErrors.helpType = error;
+        else if (error.includes('Message')) newErrors.message = error;
+      });
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -125,42 +135,61 @@ export function Contact({ variant = 'white' }: ContactProps) {
     setStatus({ type: 'loading', message: 'Sending your message...' });
 
     try {
-      // Replace with your actual API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Thank you! We\'ll get back to you within 24 hours.'
-        });
-        // Reset form after success
-        setTimeout(() => {
-          setFormData({
-            name: '',
-            company: '',
-            email: '',
-            telegram: '',
-            helpType: '',
-            otherHelp: '',
-            message: ''
-          });
-          setStatus({ type: 'idle', message: '' });
-          setErrors({});
-        }, 2000);
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
+      // Map form data to API format
+      const apiData = mapFormDataToApi(formData);
+      
+      // Submit to API
+      await submitContactForm(apiData);
+      
       setStatus({
-        type: 'error',
-        message: 'Sorry, there was an error sending your message. Please try again.'
+        type: 'success',
+        message: 'Thank you! We\'ll get back to you within 24 hours.'
       });
+      
+      // Reset form after success
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          telegram: '',
+          helpType: '',
+          otherHelp: '',
+          message: ''
+        });
+        setStatus({ type: 'idle', message: '' });
+        setErrors({});
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      
+      if (error instanceof ApiError) {
+        if (error.status === 429) {
+          const retryMessage = error.retryAfter 
+            ? ` Please try again in ${Math.ceil(error.retryAfter / 60)} minutes.`
+            : ' Please try again later.';
+          setStatus({
+            type: 'error',
+            message: `Rate limit exceeded.${retryMessage}`
+          });
+        } else if (error.details?.length) {
+          setStatus({
+            type: 'error',
+            message: `Validation errors: ${error.details.join(', ')}`
+          });
+        } else {
+          setStatus({
+            type: 'error',
+            message: error.message
+          });
+        }
+      } else {
+        setStatus({
+          type: 'error',
+          message: 'Sorry, there was an error sending your message. Please try again.'
+        });
+      }
     }
   };
 
@@ -213,6 +242,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
                       errors.name ? 'border-red-500 bg-red-50' : 'border-slate-300'
                     }`}
                     placeholder="Enter your full name"
+                    maxLength={100}
                   />
                   {errors.name && (
                     <p className="text-red-600 text-sm mt-1">
@@ -234,6 +264,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
                       errors.company ? 'border-red-500 bg-red-50' : 'border-slate-300'
                     }`}
                     placeholder="Enter company name"
+                    maxLength={100}
                   />
                   {errors.company && (
                     <p className="text-red-600 text-sm mt-1">
@@ -276,9 +307,17 @@ export function Contact({ variant = 'white' }: ContactProps) {
                     name="telegram"
                     value={formData.telegram}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 bg-white text-slate-900 placeholder-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white text-slate-900 placeholder-slate-500 ${
+                      errors.telegram ? 'border-red-500 bg-red-50' : 'border-slate-300'
+                    }`}
                     placeholder="Optional - for quick communication"
+                    maxLength={50}
                   />
+                  {errors.telegram && (
+                    <p className="text-red-600 text-sm mt-1">
+                      {errors.telegram}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -321,6 +360,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-slate-300 bg-white text-slate-900 placeholder-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Tell us how we can help you"
+                    maxLength={200}
                   />
                 </div>
               )}
@@ -340,6 +380,7 @@ export function Contact({ variant = 'white' }: ContactProps) {
                     errors.message ? 'border-red-500 bg-red-50' : 'border-slate-300'
                   }`}
                   placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
+                  maxLength={1000}
                 />
                 {errors.message && (
                   <p className="text-red-600 text-sm mt-1">
