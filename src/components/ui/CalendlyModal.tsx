@@ -36,11 +36,7 @@ export function CalendlyModal() {
           className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
           onClick={closeModal}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+          <div
             className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-slate-200/50 relative"
             onClick={(e) => e.stopPropagation()}
           >
@@ -50,14 +46,12 @@ export function CalendlyModal() {
                 <h2 className="text-2xl font-bold font-display">Schedule a Call</h2>
                 <p className="text-blue-100 mt-1">Book a 30-minute consultation</p>
               </div>
-              <motion.button
+              <button
                 onClick={closeModal}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
                 className="p-2 hover:bg-white/20 rounded-xl transition-colors"
               >
                 <X className="w-6 h-6 text-white" />
-              </motion.button>
+              </button>
             </div>
 
             {/* Calendly Iframe */}
@@ -72,7 +66,7 @@ export function CalendlyModal() {
                 loading="lazy"
               />
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

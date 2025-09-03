@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, MessageSquare, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MessageSquare } from 'lucide-react';
 import SafePressLogo from '../../logo.svg';
 
 export function Footer() {
@@ -12,24 +12,21 @@ export function Footer() {
       { name: 'Case Studies', href: '/case-studies' },
       { name: 'Contact Us', href: '/contact' },
     ],
-    services: [
-      { name: 'AI Development', href: '/' },
-      { name: 'Blockchain/Web3', href: '/' },
-      { name: 'Security Audits', href: '/' },
-      { name: 'Architecture Consulting', href: '/' },
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: '/privacy-policy' },
-      { name: 'Terms of Service', href: '/' },
-      { name: 'Cookie Policy', href: '/' },
+  
+    technologies: [
+      { name: 'Frontend', href: '/frontend' },
+      { name: 'Backend', href: '/backend' },
+      { name: 'Smart Contract Development', href: '/smart-contracts' },
+      { name: 'Smart Contract Audits', href: '/smart-contract-audit' },
+      { name: 'Game Development', href: '/game-development' },
     ],
   };
 
-  const socialLinks = [
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/safepress' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/safepress' },
-    { name: 'GitHub', icon: Github, href: 'https://github.com/safepress' },
-  ];
+  // const socialLinks = [
+  //   // { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/safepress' },
+  //   // { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/safepress' },
+  //   // { name: 'GitHub', icon: Github, href: 'https://github.com/safepress' },
+  // ];
 
   return (
     <footer className="bg-slate-900 text-white">
@@ -100,7 +97,7 @@ export function Footer() {
           </motion.div>
 
           {/* Services Links */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -119,18 +116,18 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
 
-          {/* Legal Links */}
+          {/* Technologies Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-6">Legal</h3>
+            <h3 className="text-lg font-semibold mb-6">Technologies</h3>
             <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
+              {footerLinks.technologies.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
@@ -153,12 +150,20 @@ export function Footer() {
           className="py-8 border-t border-slate-800"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm">
-              © {currentYear} SafePress. All rights reserved.
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <p className="text-slate-400 text-sm">
+                © {currentYear} SafePress. All rights reserved.
+              </p>
+              <Link
+                to="/privacy-policy"
+                className="text-slate-400 hover:text-safepress-primary transition-colors text-sm"
+              >
+                Privacy Policy
+              </Link>
+            </div>
             
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -170,7 +175,7 @@ export function Footer() {
                   <social.icon className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

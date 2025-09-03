@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
 import teamImage from '../../assets/about/1.png';
+import { Contact } from '../sections/Contact';
 
 export function AboutPage() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="relative pt-24">
+      <div className="relative pt-16">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
           <div className="container mx-auto px-6">
@@ -16,33 +17,15 @@ export function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight font-display mb-6"
+                className="text-5xl md:text-4xl font-bold text-slate-900 leading-tight font-display mb-6"
               >
-                The Powerhouse Behind Mission Critical Systems
+                From day one, our mission is to help you earn user trust, accelerate business growth, and safeguard your operations with enterprise-grade security at every stage of development.
               </motion.h1>
        
             </div>
           </div>
         </section>
 
-        {/* Mission Statement */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center space-y-6"
-              >
-                <p className="text-xl text-slate-700 leading-relaxed">
-                For over five years, SafePress has been the force behind mission-critical platforms that cannot go down. Our software has processed millions in value, scaled across continents, and carried organizations through their highest-stakes moments without compromise.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* At a Glance */}
         <section className="py-20 bg-slate-50">
@@ -62,9 +45,10 @@ export function AboutPage() {
                 {[
                   { number: '5+', label: 'years in the market' },
                   { number: '$350M+', label: 'TVL secured through platforms we\'ve built' },
-                  { number: '100+', label: 'clients served across fintech, Web3, and nonprofits' },
                   { number: '$15M+', label: 'raised for leading fundraising organizations' },
-                  { number: '30+', label: 'developers in architecture, engineering, and security' }
+                  { number: '100+', label: 'clients served' },
+                  { number: '30+', label: 'developers, designers and qa engineers' },
+                  { number: '0', label: 'incidents reported in audited smart contracts ' },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}
@@ -79,26 +63,6 @@ export function AboutPage() {
                   </motion.div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Mission */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center space-y-8"
-              >
-                <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Mission</h2>
-                <p className="text-xl text-slate-700 leading-relaxed">
-                SafePress empowers organizations to grow with confidence. We engineer platforms that scale reliably, protect against failure, and maintain business continuity when it matters most.
-                </p>
-              </motion.div>
             </div>
           </div>
         </section>
@@ -133,7 +97,7 @@ export function AboutPage() {
                   
                   <p className="text-lg text-slate-600 leading-relaxed">
                     We believe in the power of clear communication and collaborative problem-solving. Our team brings together 
-                    diverse expertise to deliver solutions that not only meet technical requirements but exceed business expectations.
+                    diverse expertise to deliver solutions that exceed technical requirements and business expectations.
                   </p>
                 </motion.div>
 
@@ -162,6 +126,7 @@ export function AboutPage() {
           </div>
         </section>
       </div>
+      <Contact variant="light-slate"/>
       <Footer />
     </div>
   );

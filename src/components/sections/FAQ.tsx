@@ -11,37 +11,31 @@ const faqData: FAQItem[] = [
     answer: "A software house builds and maintains custom software solutions. Unlike freelancers or small dev shops, it delivers the full stack, from architecture and design to development, security, cloud deployment, and ongoing support. The goal is to create reliable, scalable platforms that solve complex problems, fuel growth, and earn lasting trust."
   },
   {
-    question: "Why shouldn’t I just hire my own team?",
-    answer: "Hiring your own team sounds simple, but it rarely is. Recruiting, training, and retaining top engineers takes months and every delay slows your business down. With us, you skip the hiring struggle and get an expert team ready to deliver from day one."
-  },
-  {
-    question: "Do you work with startups as well as enterprises?",
-    answer: "Yes. We've helped **early-stage startups launch MVPs** and scale to product-market fit, as well as **enterprises running high-value, compliance-heavy systems**. We adapt our process to your stage of growth."
-  },
-  {
-    question: "How do you manage outsourced development so clients don't lose control?",
-    answer: "We build with **transparency and accountability**. You get real-time visibility into project progress via dashboards, daily updates, and direct access to our engineers. **Your vision stays in your hands, we execute it with precision.**"
-  },
-  {
     question: "How is SafePress different from other software houses?",
     answer: "We’re a software house built for mission-critical systems in Web3, FinTech, and Games. Unlike generic development shops, we focus exclusively on platforms that must withstand peak loads, pass compliance audits, and scale without fail. Our edge comes from blending deep technical architecture, security auditing, and enterprise-grade engineering into every project. Instead of vague promises or endless time-based billing, we work with clear deliverables and measurable outcomes with daily updates. In our world, shipping software that doesn’t inspire trust simply doesn’t exist."
   },
   {
-    question: "How do you handle communication and project management?",
-    answer: "We integrate into your preferred workflow (Slack, Jira, GitHub, etc.) and maintain **weekly sprint reviews, milestone-based reporting, and direct founder-to-founder communication** for critical updates."
-  },
-  {
-    question: "What is your pricing model?",
-    answer: "We offer **flexible engagement models**:\n\n* **Fixed-scope projects** with clear deliverables.\n* **Dedicated teams** for ongoing development.\n* **Hybrid models** that scale with your business."
-  },
-  {
-    question: "Can you handle compliance and audits?",
-    answer: "Yes. We have experience in **KYC/AML, GDPR, SOC2, PCI DSS, and blockchain smart contract audits**. Compliance is part of the architecture, not an afterthought."
+    question: "Why should I hire a software house instead of just building my own team?",
+    answer: "Hiring your own team sounds simple, but it rarely is. Recruiting, training, and retaining top engineers takes months and every delay slows your business down. With us, you skip the hiring struggle and get an expert team ready to deliver from day one."
   },
   {
     question: "What should I look for when choosing a software house?",
     answer: "Look for proven experience building systems withdeep expertise in Web3, and a track record of delivering platforms that scale reliably under real-world pressure. At SafePress, we’ve engineered systems handling hundreds of millions in value and millions of users, helping startups and enterprises alike launch with confidence, pass audits, and grow without fear of failure."
   },
+  {
+    question: "How do you manage outsourced development so clients don't lose control?",
+    answer: "We build with **transparency and accountability**. You get real-time visibility into project progress via dashboards, daily updates, and direct access to our engineers. **Your vision stays in your hands, we execute it with precision.**"
+  },
+
+  {
+    question: "How do you handle communication and project management?",
+    answer: "We integrate into your preferred workflow (Slack, Jira, GitHub, etc.) and maintain **weekly sprint reviews, milestone-based reporting, and direct founder-to-founder communication** for critical updates."
+  },
+  {
+    question: "Can you handle compliance and audits?",
+    answer: "Yes. We have experience in **KYC/AML, GDPR, SOC2, PCI DSS, and blockchain smart contract audits**. Compliance is part of the architecture, not an afterthought."
+  },
+
   {
     question: "Why should I choose your software house over others?",
     answer: "Because we don't just \"build apps.\" We **engineer trust-first systems that cannot fail.** We've managed over **$350M TVL**, supported **100+ clients**, and helped raise **$15M+** for nonprofits. With **zero failures.**"

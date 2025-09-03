@@ -6,6 +6,7 @@ import latetImage from '../../assets/use-cases/latet/1.png';
 import latetImage2 from '../../assets/use-cases/latet/2.jpeg';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
+import { Contact } from '../sections/Contact';
 
 export function NonprofitCaseStudy() {
   const location = useLocation();
@@ -353,10 +354,10 @@ export function NonprofitCaseStudy() {
                   to="/contact"
                   className="inline-flex items-center gap-3 bg-safepress-primary hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
                 >
-                  <span>👉 Start Your Project</span>
+                  <span>Let's Talk</span>
                 </Link>
                 <a
-                  href="https://donate.latet.org.il/"
+                  href="https://donate.latet.org.il/en.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 border-2 border-safepress-primary text-safepress-primary hover:bg-safepress-primary hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
@@ -369,6 +370,8 @@ export function NonprofitCaseStudy() {
           </div>
         </div>
       </section>
+
+      <Contact variant="light-slate" />
 
       <Footer />
     </div>

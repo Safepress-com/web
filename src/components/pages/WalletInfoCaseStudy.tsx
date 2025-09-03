@@ -7,6 +7,7 @@ import WalletInfoDashboard2 from '../../assets/use-cases/mywalletinfo/2.png';
 import WalletInfoDashboard3 from '../../assets/use-cases/mywalletinfo/3.png';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
+import { Contact } from '../sections/Contact';
 
 export function WalletInfoCaseStudy() {
   const location = useLocation();
@@ -272,7 +273,7 @@ export function WalletInfoCaseStudy() {
                   to="/contact"
                   className="inline-flex items-center gap-3 bg-safepress-primary hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
                 >
-                  <span>👉 Start Your Project</span>
+                  <span>Let's Talk</span>
                 </Link>
                 <a
                   href="https://mywalletinfo.com/"
@@ -288,6 +289,8 @@ export function WalletInfoCaseStudy() {
           </div>
         </div>
       </section>
+
+      <Contact variant="light-slate" />
 
       <Footer />
     </div>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
+import { Contact } from '../sections/Contact';
 import { caseStudies } from '../../data/caseStudies';
 
 export function CaseStudiesPage() {
@@ -18,7 +19,7 @@ export function CaseStudiesPage() {
               Case Studies
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              Explore how we've helped organizations build secure, scalable solutions that drive real business results across AI, blockchain, and emerging technologies.
+              Explore how we've helped organizations build secure, scalable solutions that drive real business results across Web3, FinTech and Gaming.
             </p>
           </div>
         </div>
@@ -94,37 +95,35 @@ export function CaseStudiesPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-safepress-primary to-safepress-secondary">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Build Your Success Story?
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Let's discuss how we can help you achieve similar results with your next project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="bg-white text-safepress-primary hover:bg-slate-50 font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Start Your Project
-              </Link>
-              <Link
-                to="/"
-                className="border-2 border-white text-white hover:bg-white hover:text-safepress-primary font-semibold px-8 py-4 rounded-xl transition-all duration-300"
-              >
-                Learn More About Us
-              </Link>
+            {/* More Coming Soon Section */}
+            <div className="mt-16 text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                <div className="max-w-md mx-auto">
+                  <div className="w-16 h-16 bg-gradient-to-br from-safepress-primary to-safepress-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    More Case Studies Coming Soon
+                  </h3>
+                  <p className="text-slate-600 mb-6">
+                    We're documenting more case studies and will be sharing them with you soon. Stay tuned for exciting new case studies!
+                  </p>
+                  <div className="flex items-center justify-center gap-2 text-safepress-primary font-medium">
+                    <div className="w-2 h-2 bg-safepress-primary rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-safepress-primary rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                    <div className="w-2 h-2 bg-safepress-primary rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <Contact />
 
       <Footer />
     </div>

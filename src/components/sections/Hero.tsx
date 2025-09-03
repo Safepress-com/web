@@ -5,8 +5,28 @@ import logo from '../../logo.svg';
 import { ContactForm } from '../ui/ContactForm';
 import { useContactForm } from '../../hooks/useContactForm';
 
+// Import company logos
+import iotaLogo from '../../assets/companies/iota.svg';
+import latetLogo from '../../assets/companies/latet.webp';
+import peaqLogo from '../../assets/companies/peaq.svg';
+import pontemLogo from '../../assets/companies/pontem.png';
+import wingsLogo from '../../assets/companies/wings.svg';
+import vlaunchLogo from '../../assets/companies/vlaunch.svg';
+import kickai from '../../assets/companies/kickai.svg';
+
 export function Hero() {
   const { isOpen, openForm, closeForm } = useContactForm();
+
+  // Company logos for the carousel
+  const companyLogos = [
+    { src: iotaLogo, alt: 'IOTA', name: 'IOTA' },
+    { src: latetLogo, alt: 'Latet', name: 'Latet' },
+    { src: peaqLogo, alt: 'Peaq', name: 'Peaq' },
+    { src: pontemLogo, alt: 'Pontem', name: 'Pontem' },
+    { src: wingsLogo, alt: 'Wings', name: 'Wings' },
+    { src: vlaunchLogo, alt: 'VLaunch', name: 'VLaunch' },
+    { src: kickai, alt: 'KickAI', name: 'KickAI' },
+  ];
 
 
 
@@ -52,9 +72,7 @@ export function Hero() {
               <span className="block">
               Software House For 
               </span>
-              <span className="block bg-gradient-to-r from-safepress-secondary to-blue-400 bg-clip-text text-transparent mt-2">
               Web3, FinTech & Games
-              </span>
             </h1>
           </motion.div>
 
@@ -65,7 +83,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-We develop mission-critical systems for Web3, FinTech, and Games. Our platforms withstand peak loads, meet enterprise security standards, and scale globally. We deliver the reliability your users can trust.
+            Build powerful software that earns user trust and grows your business. Work with a team that is trusted by leading organizations. 
+
           </motion.p>
 
           {/* CTA Buttons */}
@@ -98,6 +117,55 @@ We develop mission-critical systems for Web3, FinTech, and Games. Our platforms 
                 <span className="relative z-10">View Our Work</span>
               </Link>
             </motion.div>
+          </motion.div>
+
+          {/* Moving Client Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="pt-16"
+          >
+           
+            <div className="relative overflow-hidden">
+              <motion.div
+                animate={{ x: [0, -((companyLogos.length * (96 + 48)))] }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                className="flex gap-12 items-center"
+              >
+                {/* First set of logos */}
+                {companyLogos.map((logo, index) => (
+                  <div
+                    key={`first-${index}`}
+                    className="flex-shrink-0 h-12 w-24 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-full max-w-full object-contain filter brightness-0 invert"
+                    />
+                  </div>
+                ))}
+                
+                {/* Duplicate set for seamless loop */}
+                {companyLogos.map((logo, index) => (
+                  <div
+                    key={`second-${index}`}
+                    className="flex-shrink-0 h-12 w-24 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-full max-w-full object-contain filter brightness-0 invert"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

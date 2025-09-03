@@ -22,9 +22,7 @@ export function Features() {
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-display">
 Case Studies
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              See how we've helped businesses build secure, scalable applications that drive growth and protect what matters most.
-            </p>
+      
           </motion.div>
         </div>
 
@@ -99,7 +97,7 @@ Case Studies
                   
                   {/* Results/Key Points */}
                   <div className="space-y-2">
-                    <h4 className="text-safepress-primary font-semibold text-sm uppercase tracking-wide">
+                    <h4 className="text-white font-semibold text-sm uppercase tracking-wide">
                       Key Results
                     </h4>
                     <div className="space-y-2">

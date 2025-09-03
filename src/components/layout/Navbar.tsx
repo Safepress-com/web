@@ -36,8 +36,10 @@ export function Navbar() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Teams', href: '/team' },
     { name: 'Case Studies', href: '/case-studies' },
   ];
+
 
   const isActive = (href: string) => {
     if (href === '/') {
@@ -46,6 +48,7 @@ export function Navbar() {
     return location.pathname.startsWith(href);
   };
 
+ 
   // Always show navbar on non-home pages
   const shouldShow = location.pathname !== '/' || isVisible;
 
@@ -80,14 +83,15 @@ export function Navbar() {
                 }`}
               >
                 {item.name}
-                {isActive(item.href) && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-x-0 -bottom-px h-0.5 bg-gradient-to-r from-safepress-primary to-safepress-secondary"
-                  />
-                )}
+               
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <div className="relative">
+             
+           
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -98,7 +102,7 @@ export function Navbar() {
             >
               <Link
                 to="/contact"
-                className="bg-gradient-to-r from-safepress-primary to-safepress-secondary hover:from-blue-700 hover:to-blue-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-safepress-primary/25"
+                className="bg-gradient-to-r from-safepress-primary to-safepress-secondary hover:from-blue-700 hover:to-blue-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-safepress-primary/25 whitespace-nowrap"
               >
                 Contact Us
               </Link>
@@ -143,6 +147,10 @@ export function Navbar() {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Services */}
+           
+              
               <div className="pt-4 border-t border-slate-200">
                 <Link
                   to="/contact"

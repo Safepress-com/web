@@ -16,7 +16,7 @@ export function HomePage() {
         <About />
         <Process />
         <Features />
-        <Contact />
+        <Contact variant="light-slate" />
         <FAQ />
       </div>
       <Footer />

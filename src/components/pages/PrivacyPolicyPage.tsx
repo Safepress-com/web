@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
 import { Shield, Lock, Eye, FileText, Mail, Phone, MapPin } from 'lucide-react';
@@ -7,37 +7,22 @@ export function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="relative pt-24">
+      <div className="relative pt-16">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="mb-6"
-              >
+              <div className="mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-safepress-primary/10 rounded-full mb-6">
                   <Shield className="w-8 h-8 text-safepress-primary" />
                 </div>
-              </motion.div>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight font-display mb-6"
-              >
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight font-display mb-6">
                 Privacy Policy
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto"
-              >
+              </h1>
+              <p className="text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto">
                 Your privacy and data security are fundamental to our mission. This policy outlines how we collect, use, and protect your information.
-              </motion.p>
+              </p>
             </div>
           </div>
         </section>
@@ -46,13 +31,7 @@ export function PrivacyPolicyPage() {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto prose prose-slate prose-lg max-w-none">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-12"
-              >
+              <div className="space-y-12">
                 {/* 1. General Information */}
                 <div className="bg-slate-50 p-8 rounded-2xl">
                   <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
@@ -246,7 +225,7 @@ export function PrivacyPolicyPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>

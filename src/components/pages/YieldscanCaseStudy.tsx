@@ -7,6 +7,7 @@ import YieldscanDashboard2 from '../../assets/use-cases/Yieldscan/1.png';
 import YieldscanDashboard3 from '../../assets/use-cases/Yieldscan/2.png';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
+import { Contact } from '../sections/Contact';
 
 export function YieldscanCaseStudy() {
   const location = useLocation();
@@ -249,7 +250,7 @@ export function YieldscanCaseStudy() {
                   to="/contact"
                   className="inline-flex items-center gap-3 bg-safepress-primary hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
                 >
-                  <span>👉 Start Your Project</span>
+                  <span>Let's Talk</span>
                 </Link>
                 <a
                   href="https://Yieldscan.io/"
@@ -265,6 +266,8 @@ export function YieldscanCaseStudy() {
           </div>
         </div>
       </section>
+
+      <Contact variant="light-slate" />
 
       <Footer />
     </div>

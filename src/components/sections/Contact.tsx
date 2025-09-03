@@ -1,4 +1,3 @@
-import { Shield } from 'lucide-react';
 import { useState } from 'react';
 import { CustomSelect } from '../ui/CustomSelect';
 
@@ -25,7 +24,11 @@ interface FormErrors {
   message?: string;
 }
 
-export function Contact() {
+interface ContactProps {
+  variant?: 'white' | 'light-slate';
+}
+
+export function Contact({ variant = 'white' }: ContactProps) {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     company: '',
@@ -175,7 +178,7 @@ export function Contact() {
   const showOtherField = formData.helpType === 'other';
 
   return (
-    <section className="py-24 bg-slate-50 text-slate-900 relative">
+    <section className={`py-24 ${variant === 'white' ? 'bg-white' : 'bg-slate-50'} text-slate-900 relative`}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           
@@ -185,7 +188,7 @@ export function Contact() {
               Contact Us
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              You just need to take one step to get started. Speak with one of our experts. Fill the form below to let us know what exactly you desire.
+              Book a call with the software house that handled over $350M TVL, helpd raise $15M for nonprofits and more.
             </p>
           </div>
 
@@ -382,10 +385,7 @@ export function Contact() {
 
           {/* Additional Trust Elements */}
           <div className="mt-12 text-center space-y-4">
-            <div className="inline-flex items-center gap-2 text-slate-600 text-sm">
-              <Shield className="w-4 h-4" />
-              Your information is secure and will never be shared
-            </div>
+          
             <div className="text-slate-500 text-xs">
               By submitting this form, you agree to our{' '}
               <a 

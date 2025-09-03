@@ -5,6 +5,7 @@ import chainOfCommandImage from '../../assets/use-cases/chainofcommand/1.jpeg';
 import chainOfCommandImage2 from '../../assets/use-cases/chainofcommand/2.jpeg';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
+import { Contact } from '../sections/Contact';
 
 export function ChainOfCommandCaseStudy() {
   const location = useLocation();
@@ -248,7 +249,7 @@ export function ChainOfCommandCaseStudy() {
                   to="/contact"
                   className="inline-flex items-center gap-3 bg-safepress-primary hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
                 >
-                  <span>👉 Start Your Project</span>
+                  <span>Let's Talk</span>
                 </Link>
                 <Link
                   to="/case-studies"
@@ -261,6 +262,8 @@ export function ChainOfCommandCaseStudy() {
           </div>
         </div>
       </section>
+
+      <Contact variant="light-slate" />
 
       <Footer />
     </div>

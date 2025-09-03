@@ -44,9 +44,6 @@ export function About() {
                     We design solutions that last: scalable, secure, and ready for what's next. More than code, we provide the technical guidance needed to make the right decisions at every step.
                   </p>
                   
-                  <p>
-                    Beyond high-quality engineering, we balance innovation with reliability to deliver long-term impact.
-                  </p>
                   
                   <p>
                     As a modern software house, our reputation is built on trust and delivery. From strategy through launch and beyond, we bring technical depth and peace of mind at every stage of the development lifecycle.

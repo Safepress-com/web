@@ -75,7 +75,7 @@ export function ContactPage() {
                   >
                     <div className="w-2 h-2 bg-safepress-secondary rounded-full mt-3 flex-shrink-0"></div>
                     <p className="text-xl text-slate-600 leading-relaxed">
-                    Our <span className="font-mono text-safepress-primary">engineers</span>, <span className="font-mono text-safepress-primary">architects</span>, and <span className="font-mono text-safepress-primary">auditors</span> have delivered mission-critical systems in <span className="font-mono text-safepress-secondary">AI</span>, <span className="font-mono text-safepress-secondary">blockchain</span>, and large-scale digital platforms.
+                    Our <span className="font-mono text-safepress-primary">engineers</span>, <span className="font-mono text-safepress-primary">architects</span>, and <span className="font-mono text-safepress-primary">auditors</span> have delivered mission-critical systems in <span className="font-mono text-safepress-secondary">Web3</span>, <span className="font-mono text-safepress-secondary">FinTech</span>, and large-scale digital platforms.
                     </p>
                   </motion.div>
                   <motion.div
