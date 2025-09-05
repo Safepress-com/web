@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { CalendarDays } from 'lucide-react'
 import { useCalendlyModal } from '../../hooks/useCalendlyModal'
 
 export function FloatingConsultationButton() {
   const [isVisible, setIsVisible] = useState(false)
   const { openModal: openCalendly } = useCalendlyModal()
+  const location = useLocation()
+
+  // Don't show the button on /vc and /apply pages
+  const hiddenRoutes = ['/vc', '/apply']
+  const shouldHideButton = hiddenRoutes.includes(location.pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +26,7 @@ export function FloatingConsultationButton() {
     openCalendly()
   }
 
-  if (!isVisible) return null
+  if (!isVisible || shouldHideButton) return null
 
   return (
     <button

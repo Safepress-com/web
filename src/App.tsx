@@ -18,6 +18,8 @@ import { BackendPage } from './components/pages/BackendPage'
 import { SmartContractPage } from './components/pages/SmartContractPage'
 import { SmartContractAuditPage } from './components/pages/SmartContractAuditPage'
 import { GameDevelopmentPage } from './components/pages/GameDevelopmentPage'
+import { VCPage } from './components/pages/VCPage'
+import { ApplicationPage } from './components/pages/ApplicationPage'
 import { ScrollToTop } from './components/ui/ScrollToTop'
 import { FloatingConsultationButton } from './components/ui/FloatingConsultationButton'
 import { CalendlyModal } from './components/ui/CalendlyModal'
@@ -47,6 +49,8 @@ function App() {
         <Route path="/smart-contracts" element={<SmartContractPage />} />
         <Route path="/smart-contract-audit" element={<SmartContractAuditPage />} />
         <Route path="/game-development" element={<GameDevelopmentPage />} />
+        <Route path="/vc" element={<VCPage />} />
+        <Route path="/apply" element={<ApplicationPage />} />
       </Routes>
       <FloatingConsultationButton />
       <CalendlyModal />

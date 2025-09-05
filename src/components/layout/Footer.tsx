@@ -20,6 +20,10 @@ export function Footer() {
       { name: 'Smart Contract Audits', href: '/smart-contract-audit' },
       { name: 'Game Development', href: '/game-development' },
     ],
+
+    vc: [
+      { name: 'SafePress VC', href: '/vc' },
+    ],
   };
 
   // const socialLinks = [
@@ -132,6 +136,28 @@ export function Footer() {
                   <Link
                     to={link.href}
                     className="text-slate-300 hover:text-safepress-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* VC Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-semibold mb-6 text-emerald-300">VC</h3>
+            <ul className="space-y-3">
+              {footerLinks.vc.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
                   >
                     {link.name}
                   </Link>
