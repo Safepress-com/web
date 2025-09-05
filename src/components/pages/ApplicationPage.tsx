@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, User, Building, Lightbulb, Code, TrendingUp, DollarSign, Target, X, Home } from 'lucide-react';
-import { useState, useEffect, useCallback } from 'react';
+import { Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, User, Building, Lightbulb, Code, TrendingUp, DollarSign, Target } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
@@ -361,13 +361,6 @@ export function ApplicationPage() {
     }
   };
 
-  const handleExitAttempt = useCallback(() => {
-    if (hasUnsavedChanges && status.type !== 'success') {
-      setShowExitConfirm(true);
-    } else {
-      navigate('/vc');
-    }
-  }, [hasUnsavedChanges, status.type, navigate]);
 
   const confirmExit = () => {
     navigate('/vc');
@@ -377,14 +370,6 @@ export function ApplicationPage() {
     setShowExitConfirm(false);
   };
 
-  const clearSavedData = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(CURRENT_STEP_KEY);
-    setFormData(initialFormData);
-    setCurrentStep(0);
-    setHasUnsavedChanges(false);
-    setShowExitConfirm(false);
-  };
 
   const currentStepData = formSteps.find(step => step.id === currentStep);
   const IconComponent = currentStepData?.icon || User;

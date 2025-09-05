@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, User, Building, Lightbulb, Code, TrendingUp, DollarSign, Target, Clock } from 'lucide-react';
+import { X, Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, User, Building, Lightbulb, Code, TrendingUp, DollarSign, Target } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface ApplicationFormProps {
