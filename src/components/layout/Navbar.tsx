@@ -49,8 +49,8 @@ export function Navbar() {
   };
 
  
-  // Always show navbar on non-home pages
-  const shouldShow = location.pathname !== '/' || isVisible;
+  // Always show navbar on non-home/vc pages  
+  const shouldShow = (location.pathname !== '/' && location.pathname !== '/vc') || isVisible;
 
   return (
     <motion.nav

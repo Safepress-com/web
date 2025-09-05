@@ -9,7 +9,7 @@ export function VCPage() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="relative pt-16">
+      <div className="relative">
         {/* Hero Section */}
         <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
           {/* Enhanced Background Effects */}
