@@ -321,7 +321,7 @@ export function ApplicationPage() {
       
       setStatus({
         type: 'success',
-        message: 'Thank you! We\'ll review your application and get back to you within 48 hours.'
+        message: 'Thank you! We\'ll review your application and get back to you.'
       });
       
       // Clear saved data after successful submission
