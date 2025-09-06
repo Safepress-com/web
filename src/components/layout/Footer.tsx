@@ -22,7 +22,8 @@ export function Footer() {
     ],
 
     vc: [
-      { name: 'SafePress VC', href: '/vc' },
+      { name: 'Overview', href: '/vc' },
+      { name: 'Apply', href: '/apply' },
     ],
   };
 
